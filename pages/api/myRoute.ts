@@ -9,6 +9,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log('log del backend!')
+  console.log('log del backend! para api/myRoute')
   res.status(200).json({ name: 'Hamilton' })
 }
