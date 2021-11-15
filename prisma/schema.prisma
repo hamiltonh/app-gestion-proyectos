@@ -41,6 +41,8 @@ model MovimientoInventario {
   fecha          DateTime
   usuario        Usuario?            @relation(fields: [usuarioId], references: [id])
   usuarioId      String?
+
+    
 }
 
 model Usuario {

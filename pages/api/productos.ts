@@ -27,16 +27,16 @@ const RutaApiProductos = async (req: NextApiRequest, res: NextApiResponse) => {
     
   }
 
-//   if (req.method === 'POST') {
-//     const productoCreado = await prisma.producto.create({
-//       data: {
-//         nombre: 'Pantalla',
-//         foto: 'foto pantalla',
-//       },
-//     });
+  if (req.method === 'POST') { //http://localhost:3000/api/productos
+    const productoCreado = await prisma.producto.create({
+      data: {
+        nombre: 'Pantalla',
+        foto: 'foto pantalla',
+      },
+    });
 
-//     res.status(200).json({ producto: productoCreado });
-//   }
+    res.status(200).json({ producto: productoCreado });
+  }
 };
 
 export default RutaApiProductos;
