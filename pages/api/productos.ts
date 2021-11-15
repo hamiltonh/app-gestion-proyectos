@@ -1,28 +1,29 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-// import { PrismaClient } from '.prisma/client';
+import { PrismaClient } from '.prisma/client';
 
-// const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
 const RutaApiProductos = async (req: NextApiRequest, res: NextApiResponse) => {
   
     if (req.method === 'GET') {
     console.log('hice un get en para api/productos');
 
-    // const productos = await prisma.producto.findMany({
-    //   include: {
-    //     inventario: {
-    //       include: {
-    //         movimientoInventario: {
-    //           include: {
-    //             usuario: true,
-    //           },
-    //         },
-    //       },
-    //     },
-    //   },
-    // });
-    // res.status(200).json({ productos });
-    res.status(200).json('OK');
+    // const productos = await prisma.producto.findMany()
+
+    const productos = await prisma.producto.findMany({
+      include: {
+        inventario: {
+          include: {
+            movimientoInventario: {
+              include: {
+                usuario: true,
+              },
+            },
+          },
+        },
+      },
+    });
+    res.status(200).json({ productos });
     
   }
 
